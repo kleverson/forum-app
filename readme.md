@@ -14,8 +14,6 @@ Install with pip:
 $ pip install -r requirements.txt
 ```
 
-## Flask Configuration
-
 #### cfg example
 
 ```
@@ -67,5 +65,6 @@ In flask, Default port is `5000`
 
 Offical Website
 
+- [Layout](<https://www.figma.com/file/v2iTCFTkqXkGPRPunhZdfT/Forum-Concept-for-Alem.school-(Community)?type=design&node-id=0%3A1&mode=design&t=2kgwJsoscAh7PYqU-1>)
 - [Flask](http://flask.pocoo.org/)
 - [Flask-SQLalchemy](http://flask-sqlalchemy.pocoo.org/2.1/)
