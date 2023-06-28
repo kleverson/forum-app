@@ -1,0 +1,21 @@
+{% extends "layout/no-logged.html" %}
+{% block title %} Login {% endblock %}
+{% from "macros/formfield.html" import render_field %}
+{% block content %}
+    <div class="form">
+        <div>
+            <h2>We've missed you!</h2>
+            <p>More than 150 questions are waiting for your wise suggestions!</p>
+
+            <form action="{{ url_for('user.login') }}" method="POST">
+                {{ render_field(form.email) }}
+                {{ render_field(form.password) }}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="image">
+        <img src="{{ url_for('static', filename='/images/image.jpg')}}" alt="">
+    </div>
+{% endblock %}

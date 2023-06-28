@@ -1,0 +1,53 @@
+{% macro pagination(obj, pageUrl) %}
+{%if obj.total >= obj.per_page %}
+<hr>
+
+<ul class="pagination pagination-sm no-margin pull-right">
+    {% if obj.has_prev %}
+    <li><a href="{{pageUrl}}?page={{obj.prev_num}}">&laquo;</a></li>
+    {% endif %}
+
+    {% for page_num in obj.iter_pages() %}
+    {% if page_num :%}
+    {% if page_num != obj.page :%}
+    <li><a href="{{pageUrl}}?page={{page_num}}">{{page_num}}</a></li>
+    {% else %}
+    <li class="active"><a>{{page_num}}</a></li>
+    {% endif %}
+    {% else %}
+    <li>
+        <span class="ellipsis" style="white-space; nowrap; overflow: hidden; text-overflow: ellipsis">…</span>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    {% if obj.has_next %}
+    <li><a href="{{pageUrl}}?page={{obj.next_num}}">&raquo;</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% endmacro %}
+
+{% macro paginationclean(obj, pageUrl) %}
+{%if obj.total >= obj.per_page %}
+<ul class="pagination pagination-sm no-margin pull-right">
+    {% if obj.has_prev %}
+    <li><a href="{{pageUrl}}?page={{obj.prev_num}}">&laquo;</a></li>
+    {% endif %}
+
+    {% for p in range(obj.pages) %}
+    {% if p+1 == obj.page %}
+    <li class="active"><a href="{{pageUrl}}?page={{p +1}}">{{p+1}}</a></li>
+    {% else: %}
+    <li><a href="{{pageUrl}}?page={{p +1}}">{{p+1}}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    {% if obj.has_next %}
+    <li><a href="{{pageUrl}}?page={{obj.next_num}}">&raquo;</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% endmacro %}

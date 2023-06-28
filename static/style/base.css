@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange: #F48023;
+    --white: #FFFFFF;
+    --blue: #1682FD;
+    --gray-600: #EAEAEA;
+    --gray-500: #E5E5E5;
+    --gray-100: #808080;
+    --red: #FF0000;
+}
+
+body {
+    background: var(--gray-500);
+    font-family: 'Roboto';
+
+    overflow: hidden;
+}
+
+header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-600);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 35px 23px 50px;
+}
+
+header .buttons {
+    display: flex;
+    grid-gap: 16px;
+}
+
+header .buttons a {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 14px;
+    padding: 12px 20px;
+    transition: 0.3s all;
+    text-decoration: none;
+}
+
+header .buttons a:hover {
+    opacity: 0.8;
+}
+
+header .buttons .register {
+    align-items: center;
+    background: var(--orange);
+    color: var(--white);
+    display: flex;
+    grid-gap: 8px;
+}
+
+header .buttons .login {
+    background: var(--gray-500);
+    color: var(--blue);
+}
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+main .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 40%;
+}
+
+main .form>div {
+    margin: 0 auto;
+    max-width: 60%;
+}
+
+main .form h2 {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+main .form p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+main .form .field {
+    background: var(--white);
+    border: 1px solid var(--gray-600);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    position: relative;
+}
+
+main .form .error {
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+main .form .field label {
+    color: var(--gray-100);
+    font-size: 10px;
+    font-weight: 300;
+}
+
+main .form .field.error::before {
+    background: red;
+    bottom: 15px;
+    content: '';
+    display: block;
+    height: 10px;
+    position: absolute;
+    right: 15px;
+    width: 10px;
+}
+
+main .form .field.success::before {
+    background: green;
+    bottom: 15px;
+    content: '';
+    display: block;
+    height: 10px;
+    position: absolute;
+    right: 15px;
+    width: 10px;
+}
+
+main .form .field input {
+    border: none;
+    outline: none;
+}
+
+main .form button {
+    background: var(--orange);
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 12px;
+    width: 100%;
+}
+
+
+main .image {
+    min-width: 60%;
+}
+
+main .image img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+}

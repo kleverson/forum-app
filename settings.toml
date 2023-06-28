@@ -1,0 +1,18 @@
+[default]
+DEBUG = true
+SQLALCHEMY_DATABASE_URI = 'mysql://root:#Asdf1234@127.0.0.1:3307/forum_db'
+SQLALCHEMY_TRACK_MODIFICATIONS = true
+
+TITLE = "analytics api"
+SECRET_KEY = "jadkfbsdkjbfbh"
+PASSWORD_SCHEMES = ['pbkdf2_sha512', 'md5_crypt']
+
+JWT_SECRET_KEY= "abcd1dfa134"
+JWT_BLACKLIST_ENABLED = true
+JWT_ACCESS_TOKEN_EXPIRES=60
+JWT_BLACKLIST_TOKEN_CHECKS = ['access','refresh']
+
+EXTENSIONS = [
+    "forum.blueprints:init_app",
+    "forum.ext.database:init_app"
+]
