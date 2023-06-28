@@ -1,7 +1,6 @@
 # Flask example
 
-Using Flask to build a Restful API Server with Swagger document.
-Integration with Flask-Cors, Flask-SQLalchemy extensions.
+Using Flask to build a Flask-SQLalchemy extensions.
 
 ### Extension:
 
