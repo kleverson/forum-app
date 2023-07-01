@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}">
+    <title>Forum :: {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+            </a>
+        </h1>
+        {% if current_user.is_authenticated %}
+        <div class="buttons">
+            <a href="{{url_for('user.profile')}}" class="register">
+                <img src="{{ url_for('static', filename='images/user-plus.png') }}" alt="">
+                <span>{{current_user.name}}</span>
+            </a>
+        </div>
+        {% endif %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

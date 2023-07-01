@@ -1,13 +1,22 @@
 {% extends "layout/no-logged.html" %}
 {% block title %} Login {% endblock %}
-{% from "macros/formfield.html" import render_field %}
 {% block content %}
     <div class="form">
         <div>
             <h2>We've missed you!</h2>
             <p>More than 150 questions are waiting for your wise suggestions!</p>
 
+            {% from "macros/formfield.html" import render_field %}
+            
             <form action="{{ url_for('user.login') }}" method="POST">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {{ form.csrf_token }}
                 {{ render_field(form.email) }}
                 {{ render_field(form.password) }}
                 <button type="submit">Login</button>

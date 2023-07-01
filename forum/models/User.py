@@ -1,7 +1,10 @@
+import binascii
+import os
 from itsdangerous import Serializer
 from werkzeug.security import check_password_hash, generate_password_hash
 from forum.models.Base import Base
 from forum.ext.database import db
+
 
 class User(Base):
     username = db.Column(db.String(200), unique=True)
@@ -12,14 +15,30 @@ class User(Base):
 
     def __init__(self, username, password, name, active):
         self.username = username
-        self.password = password
+        self.password = generate_password_hash(password)
         self.name = name
+        self.token = binascii.b2a_hex(os.urandom(15)).decode("utf-8")
         self.active = active
 
     def serialize(cls):
         d = Serializer.serialize(cls)
         del d['password']
         return d
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.id)
 
     @classmethod
     def exists(cls, username):

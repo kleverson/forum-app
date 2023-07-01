@@ -14,5 +14,6 @@ JWT_BLACKLIST_TOKEN_CHECKS = ['access','refresh']
 
 EXTENSIONS = [
     "forum.blueprints:init_app",
-    "forum.ext.database:init_app"
+    "forum.ext.database:init_app",
+    "forum.ext.login:init_app"
 ]
