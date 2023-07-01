@@ -5,6 +5,7 @@ Using Flask to build a Flask-SQLalchemy extensions.
 ### Extension:
 
 - SQL ORM: [Flask-SQLalchemy](http://flask-sqlalchemy.pocoo.org/2.1/)
+- Login: [Flask-Login](https://flask-login.readthedocs.io/en/latest/)
 
 ## Installation
 
